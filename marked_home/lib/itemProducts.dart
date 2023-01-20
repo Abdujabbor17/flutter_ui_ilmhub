@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 
 Widget productItem(
-    {required BuildContext context,
+    { required BuildContext context,
     required bool isLiked,
-    required void Function() onPrassLike,
-    required void Function() DoubleLIke}) {
+      required String image,
+    required void Function() onPressLike,
+    required void Function() doubleLike,
+      required void Function() onPressCart,
+      required void Function() delete
+
+    }) {
   return InkWell(
-    onDoubleTap: DoubleLIke,
+    onDoubleTap: doubleLike,
     child: Container(
       padding: EdgeInsets.all(16),
       margin: EdgeInsets.symmetric(
@@ -26,13 +31,35 @@ Widget productItem(
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          InkWell(
-            onTap: onPrassLike,
-            child: Icon(
-              isLiked ? Icons.favorite : Icons.favorite_border,
-              color: isLiked ? Colors.red : Colors.white,
-              size: 40,
-            ),
+          Column(
+            children: [
+              InkWell(
+                onTap: onPressLike,
+                child: Icon(
+                  isLiked ? Icons.favorite : Icons.favorite_border,
+                  color: isLiked ? Colors.red : Colors.white,
+                  size: 40,
+                ),
+              ),
+              SizedBox(height: 10,),
+              InkWell(
+                onTap: onPressCart,
+                child: Icon(
+                  Icons.shopping_cart ,
+                  color: Colors.black,
+                  size: 40,
+                ),
+              ),
+              SizedBox(height: 10,),
+              InkWell(
+                onTap: delete,
+                child: Icon(
+                  Icons.delete ,
+                  color: Colors.black,
+                  size: 40,
+                ),
+              ),
+            ],
           ),
         ],
       ),

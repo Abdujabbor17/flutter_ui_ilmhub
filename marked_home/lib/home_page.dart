@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:marked_home/likePage.dart';
 import 'package:marked_home/productModel.dart';
 
@@ -14,15 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<ProductModel> list = [
-    ProductModel('assets/applemac.png'),
-    ProductModel('assets/applemac.png'),
-    ProductModel('assets/applemac.png'),
-    ProductModel('assets/applemac.png'),
-    ProductModel('assets/applemac.png'),
-    ProductModel('assets/applemac.png'),
-  ];
-
   int counter = 0;
 
   @override
@@ -37,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
           actions: [
-            InkWell(
+            /* InkWell(
               onTap: () {
                 Navigator.push(
                   context,
@@ -56,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Center(child: Text(counter.toString())),
               ),
-            )
+            )*/
           ],
           elevation: 0,
         ),
@@ -114,7 +106,8 @@ class _HomePageState extends State<HomePage> {
                     return productItem(
                         context: context,
                         isLiked: list[index].isLike,
-                        onPrassLike: () {
+                        image: list[index].image!,
+                        onPressLike: () {
                           list[index].isLike = !list[index].isLike;
                           if (list[index].isLike) {
                             counter++;
@@ -125,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                           }
                           setState(() {});
                         },
-                        DoubleLIke: () {
+                        doubleLike: () {
                           list[index].isLike = !list[index].isLike;
                           if (list[index].isLike) {
                             counter++;
@@ -135,6 +128,30 @@ class _HomePageState extends State<HomePage> {
                             likedList.remove(list[index]);
                           }
                           setState(() {});
+                        },
+                        onPressCart: () {
+                          cartList.add(list[index]);
+
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colors.green,
+                            behavior: SnackBarBehavior.floating,
+                            content: Text("Siz bu mahsulotni savatchaga qo\'shdingiz"),
+                          ));
+
+                          // Fluttertoast.showToast(
+                          //     msg: "Siz bu mahsulotni savatchaga qo\'shdingiz",
+                          //     toastLength: Toast.LENGTH_SHORT,
+                          //     gravity: ToastGravity.CENTER,
+                          //     timeInSecForIosWeb: 5,
+                          //     backgroundColor: Colors.red,
+                          //     textColor: Colors.white,
+                          //     fontSize: 16.0
+                          // );
+                          setState(() {});
+                        },
+                        delete: () {
+                          list.remove(list[index]);
+                          setState(() {});
                         });
                   })
             ],
@@ -142,7 +159,3 @@ class _HomePageState extends State<HomePage> {
         )));
   }
 }
-
-
-
-
