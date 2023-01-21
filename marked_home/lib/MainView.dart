@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:marked_home/likePage.dart';
+import 'package:marked_home/pages/cartPage.dart';
+import 'package:marked_home/pages/likePage.dart';
 
 import 'ProfilePage.dart';
-import 'cartPage.dart';
-import 'home_page.dart';
+import 'pages/home_page.dart';
 
 class MainView extends StatefulWidget {
   const MainView({Key? key}) : super(key: key);

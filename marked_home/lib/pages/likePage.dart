@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:marked_home/attributes.dart';
-import 'package:marked_home/productModel.dart';
+import 'package:marked_home/states/attributes.dart';
+import 'package:marked_home/models/productModel.dart';
 
-import 'itemProducts.dart';
-import 'likeItem.dart';
+import '../items/likeItem.dart';
 
 class LikePage extends StatefulWidget {
    LikePage({/*required this.list,*/Key? key}) : super(key: key);
@@ -24,7 +23,7 @@ class _LikePageState extends State<LikePage> {
       :ListView.builder(
           itemCount: likedList.length,
           itemBuilder: (context,index){
-        return likeItem(context:context);
+        return likeItem(context:context,image: likedList[index].image!);
       }),
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget cartItem( BuildContext context,) {
+Widget cartItem( BuildContext context,String image) {
   return Container(
     padding: EdgeInsets.all(16),
     margin: EdgeInsets.symmetric(
@@ -13,7 +13,7 @@ Widget cartItem( BuildContext context,) {
         image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(
-            "assets/applemac.png",
+            image,
           ),
         )),
     child: Row(

@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:marked_home/likePage.dart';
-import 'package:marked_home/productModel.dart';
+import 'package:marked_home/pages/commentPage.dart';
+import 'package:marked_home/pages/likePage.dart';
+import 'package:marked_home/models/productModel.dart';
 
-import 'attributes.dart';
-import 'itemProducts.dart';
+import '../states/attributes.dart';
+import '../items/itemProducts.dart';
+import 'detailPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -118,16 +120,13 @@ class _HomePageState extends State<HomePage> {
                           }
                           setState(() {});
                         },
-                        doubleLike: () {
-                          list[index].isLike = !list[index].isLike;
-                          if (list[index].isLike) {
-                            counter++;
-                            likedList.add(list[index]);
-                          } else {
-                            counter--;
-                            likedList.remove(list[index]);
-                          }
-                          setState(() {});
+                        onPressDetail: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailPage(item: list[index])),
+                          );
                         },
                         onPressCart: () {
                           cartList.add(list[index]);
@@ -135,7 +134,8 @@ class _HomePageState extends State<HomePage> {
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             backgroundColor: Colors.green,
                             behavior: SnackBarBehavior.floating,
-                            content: Text("Siz bu mahsulotni savatchaga qo\'shdingiz"),
+                            content: Text(
+                                "Siz bu mahsulotni savatchaga qo\'shdingiz"),
                           ));
 
                           // Fluttertoast.showToast(
@@ -152,7 +152,18 @@ class _HomePageState extends State<HomePage> {
                         delete: () {
                           list.remove(list[index]);
                           setState(() {});
-                        });
+                        },
+                        comment: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    CommentPage(item: list[index])),
+                          );
+                        },
+
+
+                    );
                   })
             ],
           ),

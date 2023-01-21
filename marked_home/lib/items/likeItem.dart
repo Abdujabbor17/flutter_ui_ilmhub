@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget likeItem({required BuildContext context,
+Widget likeItem({required BuildContext context,required String image
 }
     ) {
   return Container(
@@ -15,7 +15,7 @@ Widget likeItem({required BuildContext context,
         image: DecorationImage(
           fit: BoxFit.cover,
           image: AssetImage(
-            "assets/applemac.png",
+            image,
           ),
         )),
     child: Row(

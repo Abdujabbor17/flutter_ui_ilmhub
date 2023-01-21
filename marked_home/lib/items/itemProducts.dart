@@ -5,13 +5,14 @@ Widget productItem(
     required bool isLiked,
       required String image,
     required void Function() onPressLike,
-    required void Function() doubleLike,
+    required void Function() onPressDetail,
       required void Function() onPressCart,
-      required void Function() delete
+      required void Function() delete,
+      required void Function() comment,
 
     }) {
   return InkWell(
-    onDoubleTap: doubleLike,
+    onTap: onPressDetail,
     child: Container(
       padding: EdgeInsets.all(16),
       margin: EdgeInsets.symmetric(
@@ -24,7 +25,7 @@ Widget productItem(
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              "assets/applemac.png",
+              image,
             ),
           )),
       child: Row(
@@ -59,6 +60,16 @@ Widget productItem(
                   size: 40,
                 ),
               ),
+              SizedBox(height: 10,),
+              InkWell(
+                onTap: comment,
+                child: Icon(
+                  Icons.mode_comment_outlined ,
+                  color: Colors.black,
+                  size: 40,
+                ),
+              ),
+
             ],
           ),
         ],

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:marked_home/attributes.dart';
+import 'package:marked_home/states/attributes.dart';
 
-import 'cartItem.dart';
+import '../items/cartItem.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class _CartPageState extends State<CartPage> {
         child: ListView.builder(
           itemCount: cartList.length,
             itemBuilder: (context,index){
-          return cartItem(context);
+          return cartItem(context,cartList[index].image!);
         }),
       ),
 
