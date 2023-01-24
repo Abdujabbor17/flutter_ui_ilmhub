@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hotel_ui/items/hotel_item.dart';
+import 'package:logger/logger.dart';
 
 import '../attributes.dart';
 import '../items/hotelCategoryItem.dart';
+import '../utils/functions.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,6 +15,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,14 +59,42 @@ class _HomePageState extends State<HomePage> {
                           prefixIcon: const Icon(Icons.search),
                           hintText: 'Search for hotels...'
                         ),
+
+                        onChanged: (val){
+                          if(val != '') {
+                            searchHotel(val);
+                          }else{
+                            searchedList.clear();
+                          }
+                          setState(() {});
+
+                          //Logger().i(searchedList.length);
+                          //print(searchedList.toString());
+                        },
+
                       ),
                     )
                   ],
                 ),
               ),
             ),
-            SizedBox(
-              height:  MediaQuery.of(context).size.height * 0.35 * categoryList.length,
+            searchedList.isNotEmpty?
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.26 * searchedList.length,
+                  child: ListView.builder(
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: searchedList.length,
+                      itemBuilder: (context,index){
+                    return hotelItem(
+                        context,
+                        searchedList[index].image,
+                        searchedList[index].hotelName);
+                  }),
+                )
+            :SizedBox(
+              height: MediaQuery.of(context).size.height * 0.35 *
+                  categoryList.length,
               child: ListView.builder(
                 shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
@@ -82,3 +114,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
