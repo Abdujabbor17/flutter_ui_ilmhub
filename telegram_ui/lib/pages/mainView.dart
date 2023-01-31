@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:telegram_ui/items/chat%20Item.dart';
+import 'package:telegram_ui/pages/private_page.dart';
 
 import 'all_page.dart';
 
@@ -71,6 +72,7 @@ class _MainViewState extends State<MainView>
         controller:tabController ,
         children: [
         AllPage(),
+          PrivatePage()
       ],
 
       ),

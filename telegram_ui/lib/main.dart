@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:telegram_ui/pages/addContactPage.dart';
 import 'package:telegram_ui/pages/contactPage.dart';
 import 'package:telegram_ui/pages/mainView.dart';
 
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
       home: const MainView(),
       routes: {
         '/ContactPage':(context) => const ContactPage(),
+        '/AddContact':(context) => const AddContact(),
       },
     );
   }
