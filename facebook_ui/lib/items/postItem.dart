@@ -1,9 +1,10 @@
-import 'dart:math';
+
 
 import 'package:badges/badges.dart';
-import 'package:facebook_ui/model/postModel.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../model/postModel.dart';
 
 Widget postItem(
     BuildContext context,
@@ -62,8 +63,9 @@ Widget postItem(
             children: [
               Row(
                 children: [
-                  Badge(
+                  badges.Badge(
                     position: BadgePosition.custom(
+
                       start: 20
                     ),
                       badgeContent: GestureDetector(

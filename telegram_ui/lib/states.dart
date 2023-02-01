@@ -35,14 +35,8 @@ List<ContactModel> contacts = [
   ContactModel('Yelena', false, '08:33'),
   ContactModel('Doniyor', true, '0000',image: 'assets/user_3.jpeg'),
   ContactModel('Feruza', false, '08:33',image: 'assets/user_5.jpeg'),
- ContactModel('Guli', false, '12:02',image: 'assets/user_1.jpeg'),
-  ContactModel('Alisher', false, '17:36',image: 'assets/user_2.jpeg'),
-  ContactModel('Yelena', false, '08:33'),
-  ContactModel('Doniyor', true, '0000',image: 'assets/user_3.jpeg'),
-  ContactModel('Feruza', false, '08:33',image: 'assets/user_5.jpeg'),
+
 
 ];
 bool isClicked = false;
-List<ContactModel> searchList = [
-
-];
+List<ContactModel> searchList = [];
