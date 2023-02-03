@@ -37,7 +37,11 @@ class _HomePageState extends State<HomePage> {
         ),
         centerTitle: true,
         actions: [
-          SvgPicture.asset("assets/icons/action.svg"),
+          InkWell(
+              onTap: (){
+                Navigator.pushNamed(context, '/Setting');
+              },
+              child: SvgPicture.asset("assets/icons/action.svg")),
           const SizedBox(width: 21)
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_ui/pages/home_page.dart';
+import 'package:twitter_ui/pages/setting_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,8 @@ class MyApp extends StatelessWidget {
       ),
       home: const HomePage(),
       routes: {
-        '/HomePage': (context) => const HomePage()
+        '/HomePage': (context) => const HomePage(),
+        '/Setting': (context) => const Setting(),
       },
     );
   }
