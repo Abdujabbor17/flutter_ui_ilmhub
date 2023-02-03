@@ -1,13 +1,13 @@
-class Post {
+class PostModel {
   final String userImage;
   final String username;
   final String postImage;
   final String caption;
 
-  Post({
-    this.userImage,
-    this.username,
-    this.postImage,
-    this.caption
+  PostModel({
+    required this.userImage,
+    required this.username,
+    required this.postImage,
+    required this.caption
   });
 }

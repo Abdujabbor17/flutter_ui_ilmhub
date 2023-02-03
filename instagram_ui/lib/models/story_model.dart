@@ -1,5 +1,6 @@
-class Story {
+class StoryModel {
   final String image;
   final String name;
-  Story(this.image, this.name);
+  bool isSeen;
+  StoryModel(this.image, this.name,{this.isSeen = false});
 }
